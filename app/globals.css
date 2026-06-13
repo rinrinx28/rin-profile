@@ -1,26 +1,229 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* Neutral */
+  --background: oklch(0.985 0.005 240);
+  --foreground: oklch(0.16 0.010 250);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.010 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.010 250);
+
+  /* Navy / Blue accent */
+  --primary: oklch(0.42 0.145 258);
+  --primary-foreground: oklch(0.985 0.005 240);
+
+  /* Muted surfaces */
+  --secondary: oklch(0.96 0.008 240);
+  --secondary-foreground: oklch(0.42 0.145 258);
+  --muted: oklch(0.96 0.008 240);
+  --muted-foreground: oklch(0.48 0.018 250);
+
+  /* Soft navy highlight */
+  --accent: oklch(0.94 0.030 258);
+  --accent-foreground: oklch(0.38 0.130 258);
+
+  /* Semantic */
+  --destructive: oklch(0.52 0.190 25);
+
+  /* Borders & inputs */
+  --border: oklch(0.88 0.012 240);
+  --input: oklch(0.88 0.012 240);
+  --ring: oklch(0.55 0.150 258);
+
+  /* Charts (navy scale) */
+  --chart-1: oklch(0.42 0.145 258);
+  --chart-2: oklch(0.55 0.130 258);
+  --chart-3: oklch(0.65 0.100 258);
+  --chart-4: oklch(0.75 0.065 258);
+  --chart-5: oklch(0.88 0.030 258);
+
+  --radius: 0.5rem;
+
+  /* Sidebar */
+  --sidebar: oklch(0.96 0.008 240);
+  --sidebar-foreground: oklch(0.16 0.010 250);
+  --sidebar-primary: oklch(0.42 0.145 258);
+  --sidebar-primary-foreground: oklch(0.985 0.005 240);
+  --sidebar-accent: oklch(0.94 0.030 258);
+  --sidebar-accent-foreground: oklch(0.38 0.130 258);
+  --sidebar-border: oklch(0.88 0.012 240);
+  --sidebar-ring: oklch(0.55 0.150 258);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* ── Dynamic Morphing Terrain (Projects intro) ── */
+/* Uses CSS `d` property animation — supported Chrome 93+, Firefox 112+, Safari 16.4+ */
+/* All path states must share the same command structure: M + 6×C + 2×L + Z          */
+
+.morph-terrain-1 {
+  animation: morphTerrain1 14s ease-in-out infinite alternate;
+}
+
+.morph-terrain-2 {
+  animation: morphTerrain2 10s ease-in-out infinite alternate;
+  animation-delay: -3s;
+}
+
+.morph-terrain-3 {
+  animation: morphTerrain3 12s ease-in-out infinite alternate;
+  animation-delay: -6s;
+}
+
+/* Top-edge terrain wave — viewBox 0 0 1440 360, fill down to y=360 */
+/* Layer 1 — back, lightest, highest peaks (y ≈ 86–120) */
+@keyframes morphTerrain1 {
+  0% {
+    d: path("M 0,120 C 80,98 160,110 240,120 C 320,130 400,100 480,86 C 560,72 640,96 720,120 C 800,144 880,128 960,104 C 1040,80 1120,98 1200,120 C 1280,142 1360,130 1440,120 L 1440,360 L 0,360 Z");
+  }
+  50% {
+    d: path("M 0,138 C 80,108 160,76 240,132 C 320,188 400,156 480,112 C 560,68 640,90 720,140 C 800,190 880,158 960,104 C 1040,50 1120,88 1200,144 C 1280,200 1360,168 1440,138 L 1440,360 L 0,360 Z");
+  }
+  100% {
+    d: path("M 0,126 C 80,156 160,138 240,84 C 320,30 400,108 480,158 C 560,208 640,170 720,116 C 800,62 880,100 960,160 C 1040,220 1120,176 1200,100 C 1280,24 1360,96 1440,126 L 1440,360 L 0,360 Z");
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Layer 2 — mid (y ≈ 132–180) */
+@keyframes morphTerrain2 {
+  0% {
+    d: path("M 0,180 C 80,158 160,170 240,180 C 320,190 400,160 480,146 C 560,132 640,156 720,180 C 800,204 880,188 960,164 C 1040,140 1120,158 1200,180 C 1280,202 1360,190 1440,180 L 1440,360 L 0,360 Z");
+  }
+  50% {
+    d: path("M 0,198 C 80,168 160,136 240,192 C 320,248 400,216 480,172 C 560,128 640,150 720,200 C 800,250 880,218 960,164 C 1040,110 1120,148 1200,204 C 1280,260 1360,228 1440,198 L 1440,360 L 0,360 Z");
+  }
+  100% {
+    d: path("M 0,186 C 80,216 160,198 240,144 C 320,90 400,168 480,218 C 560,268 640,230 720,176 C 800,122 880,160 960,220 C 1040,280 1120,236 1200,160 C 1280,84 1360,156 1440,186 L 1440,360 L 0,360 Z");
+  }
+}
+
+/* Layer 3 — front, darkest, lowest peaks blends into gallery (y ≈ 212–240) */
+@keyframes morphTerrain3 {
+  0% {
+    d: path("M 0,240 C 80,220 160,232 240,240 C 320,248 400,224 480,212 C 560,200 640,222 720,240 C 800,258 880,244 960,226 C 1040,208 1120,222 1200,240 C 1280,258 1360,248 1440,240 L 1440,360 L 0,360 Z");
+  }
+  50% {
+    d: path("M 0,256 C 80,228 160,198 240,250 C 320,302 400,272 480,230 C 560,188 640,208 720,256 C 800,304 880,274 960,222 C 1040,170 1120,206 1200,260 C 1280,314 1360,284 1440,256 L 1440,360 L 0,360 Z");
+  }
+  100% {
+    d: path("M 0,244 C 80,272 160,254 240,204 C 320,154 400,228 480,274 C 560,320 640,284 720,232 C 800,180 880,216 960,272 C 1040,328 1120,286 1200,216 C 1280,146 1360,214 1440,244 L 1440,360 L 0,360 Z");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .morph-terrain-1,
+  .morph-terrain-2,
+  .morph-terrain-3 {
+    animation: none;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    cursor: none;
+    scrollbar-width: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    @apply font-sans;
+    scrollbar-width: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  a, button {
+    cursor: none;
+  }
+  @media (pointer: coarse) {
+    body, a, button {
+      cursor: auto;
+    }
+  }
 }
