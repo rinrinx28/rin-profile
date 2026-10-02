@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "rinrinx28 — Full-Stack Developer & DevOps Engineer",
+  title: "Pham Minh Anh (rinrinx28) — Full-Stack Developer & Technical Lead",
   description:
-    "Personal portfolio of rinrinx28. Full-Stack Developer specializing in Next.js, NestJS, and DevOps with Linux, Nginx, Docker, PostgreSQL, Redis, and RabbitMQ.",
+    "Portfolio of Pham Minh Anh (rinrinx28), full-stack developer and technical lead — NestJS, Next.js, Expo (React Native), PostgreSQL and blockchain.",
 };
 
 export default function RootLayout({
